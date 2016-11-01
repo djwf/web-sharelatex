@@ -72,6 +72,9 @@ define [
 		getRecentAck: () ->
 			@doc?.getRecentAck()
 
+		getOpSize: (op) ->
+			@doc?.getOpSize(op)
+
 		hasBufferedOps: () ->
 			@doc?.hasBufferedOps()
 

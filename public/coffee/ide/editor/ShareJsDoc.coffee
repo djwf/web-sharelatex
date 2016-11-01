@@ -112,6 +112,16 @@ define [
 		getRecentAck: () ->
 			# check if we have received an ack recently (within the flush delay)
 			@lastAcked? and new Date() - @lastAcked < @_doc._flushDelay
+		getOpSize: (op) ->
+			# compute size of an op from its components
+			# (total number of characters inserted and deleted)
+			size = 0
+			for component in op or []
+				if component?.i?
+					size += component.i.length
+				if component?.d?
+					size += component.d.length
+			return size
 
 		attachToAce: (ace) -> @_doc.attach_ace(ace, false, window.maxDocLength)
 		detachFromAce: () -> @_doc.detach_ace?()

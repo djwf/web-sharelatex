@@ -69,6 +69,9 @@ define [
 		getPendingOp: () ->
 			@doc?.getPendingOp()
 
+		getRecentAck: () ->
+			@doc?.getRecentAck()
+
 		hasBufferedOps: () ->
 			@doc?.hasBufferedOps()
 
